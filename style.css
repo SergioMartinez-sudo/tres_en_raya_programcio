@@ -31,7 +31,7 @@ h2 {
     padding              : 20px;
     border-radius        : 20px;
     background           : rgba(255, 255, 255, 0.03);
-    box-shadow           : 0 0 20px rgba(0, 0, 0, 0.5);
+    box-shadow           : 0 0 20px rgba(16, 121, 190, 0.5);
 }
 
 .cell {
@@ -52,7 +52,7 @@ h2 {
 }
 
 .cell:hover {
-    background: #252525;
+    background: #ffffff;
     transform : scale(1.05);
     box-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
 }
@@ -72,9 +72,13 @@ h2 {
 }
 
 .letter {
-  font-family: "Rubik Dirt", system-ui;
+  font-family: "Honk", system-ui;
+  font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+  font-variation-settings:
+    "MORF" 15,
+    "SHLN" 50;
 }
 
 

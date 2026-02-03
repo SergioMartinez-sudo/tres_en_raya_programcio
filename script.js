@@ -1,4 +1,4 @@
-
+// We select the elements from the DOM
 const cells = document.querySelectorAll ('.cell');
 const statusDisplay = document.querySelectorAll('h2');
 let gameActive = true;
@@ -6,7 +6,7 @@ let currentPlayer = "x";
 let gameState = ["", "", "", "", "", "", "", "", ""]
 
 
-
+//Posibility WIN
 const winningConditions = [
     [0, 1, 2],
     [3, 4, 5],
@@ -19,31 +19,40 @@ const winningConditions = [
 ];
 
 
+
+
+
+
+
+
+// Function to handle clicking on a cell
 function handleCellClick(clickedCellEvent) {
     const clickedCell = clickedCellEvent.target;
     const clickedCellIndex = Array.from(cells).indexOf(clickedCell);
 
 
-
+    // If the cell is already occupied or the game is over, we do nothing.
     if (gameState[clickedCellIndex] !== "" || !gameActive) {
         return;
     }
 
 
+    // We updated the status and interface
     handleCellPlayed(clickedCell, clickedCellIndex);
     handleResultValidation();
 }
 
 
-
+// Function to mark the cell
 function handleCellPlayed(clickedCell, clickedCellIndex) {
     gameState[clickedCellIndex] = currentPlayer;
     clickedCell.innerText = currentPlayer;
     clickedCell.classList.add(currentPlayer.toLowerCase());
 }
- 
 
 
+
+// 5. Función para validar el resultado
 function handleResultValidation() {
     let roundWon = false;
 
@@ -60,11 +69,9 @@ function handleResultValidation() {
             roundWon = true;
             break;
         }
-    }}
+    }
 
-
-
-        if (roundWon) {
+    if (roundWon) {
         statusDisplay.innerText = `¡El jugador ${currentPlayer} ha ganado!`;
         gameActive = false;
         return;
@@ -77,3 +84,20 @@ function handleResultValidation() {
         gameActive = false;
         return;
     }
+
+    // Si no han ganado ni empatado, cambiamos de jugador
+    handlePlayerChange();
+}
+
+// 6. Función para cambiar de turno
+function handlePlayerChange() {
+    currentPlayer = currentPlayer === "X" ? "O" : "X";
+    statusDisplay.innerText = `Turno de ${currentPlayer}`;
+}
+
+// 7. Event listeners para las celdas
+cells.forEach(cell => cell.addEventListener('click', handleCellClick));
+
+// Inicializar el mensaje de turno
+statusDisplay.innerText = `Turno de ${currentPlayer}`;
+

@@ -52,19 +52,18 @@ h2 {
 }
 
 .cell:hover {
-    background: #ffffff;
+    background: #000000;
     transform : scale(1.05);
     box-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
 }
 
 .cell.x {
-    color      : #d7ee09;
-    text-shadow: 0 0 10px #d7ee09, 0 0 20px #d7ee09;
+    color      : #ff0000;
 }
 
 .cell.o {
-    color      : #02b8f0;
-    text-shadow: 0 0 10px #02b8f0, 0 0 20px #02b8f0;
+    color      : #f002c8;
+    
 }
 
 .cell:active {
